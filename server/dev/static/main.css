@@ -1,0 +1,40 @@
+.Field {
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 15px; }
+
+#Field {
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 15px; }
+
+.FieldHome {
+  text-align: center;
+  margin-top: 35%;
+  padding-top: 0px;
+  margin-left: 10%;
+  margin-right: 10%;
+  border-radius: 2em;
+  background-color: white; }
+
+.Button {
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 15px; }
+
+#header {
+  padding-top: 10px;
+  padding-bottom: 0px;
+  padding-left: 10px; }
+
+.background {
+  background-image: url(https://images.unsplash.com/photo-1497801070587-c20425a26098?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=&bg=);
+  /* Full height */
+  height: 100%;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+/*# sourceMappingURL=main.css.map */
