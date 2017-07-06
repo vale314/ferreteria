@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 //tenemos un modulo que exportamos recibe a uri que es donde esta la base de datos
 module.exports.connect = (uri) => {
-  mongoose.createConnection(uri);
+  mongoose.connect(uri);
   // plomesas
   mongoose.Promise = global.Promise;
 

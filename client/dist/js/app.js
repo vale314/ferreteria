@@ -30674,13 +30674,18 @@ var _Login = __webpack_require__(482);
 
 var _Login2 = _interopRequireDefault(_Login);
 
+var _Login3 = __webpack_require__(1018);
+
+var _Login4 = _interopRequireDefault(_Login3);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Main = function Main() {
   return _react2.default.createElement(
     _reactRouterDom.Switch,
     null,
-    _react2.default.createElement(_reactRouterDom.Route, { path: '/login/admin', component: _Login2.default })
+    _react2.default.createElement(_reactRouterDom.Route, { path: '/ferreterias', component: _Login2.default }),
+    _react2.default.createElement(_reactRouterDom.Route, { path: '/admin', component: _Login4.default })
   );
 };
 
@@ -30923,7 +30928,9 @@ var CardExampleExpandable = function CardExampleExpandable(_ref) {
   var home = _ref.home,
       user = _ref.user,
       onChange = _ref.onChange,
-      onSubmit = _ref.onSubmit;
+      onSubmit = _ref.onSubmit,
+      successMessage = _ref.successMessage,
+      errors = _ref.errors;
   return _react2.default.createElement(
     'div',
     null,
@@ -30933,12 +30940,22 @@ var CardExampleExpandable = function CardExampleExpandable(_ref) {
       _react2.default.createElement(
         _semanticUiReact.Header,
         { as: 'h2', textAlign: 'center', onClick: home },
-        'Ferreterias'
+        'Admin'
       )
     ),
     _react2.default.createElement(
       'form',
       { action: '/', onSubmit: onSubmit },
+      successMessage && _react2.default.createElement(
+        'p',
+        { className: 'success-message' },
+        successMessage
+      ),
+      errors.summary && _react2.default.createElement(
+        'p',
+        { className: 'error-message' },
+        errors.summary
+      ),
       _react2.default.createElement(
         'div',
         { className: 'Field' },
@@ -30950,7 +30967,8 @@ var CardExampleExpandable = function CardExampleExpandable(_ref) {
           onChange: onChange,
           value: user.email,
           required: true,
-          type: 'email'
+          type: 'email',
+          errorText: errors.email
         })
       ),
       _react2.default.createElement(
@@ -30963,6 +30981,7 @@ var CardExampleExpandable = function CardExampleExpandable(_ref) {
           type: 'password',
           onChange: onChange,
           value: user.password,
+          errorText: errors.password,
           required: true
         })
       ),
@@ -30994,7 +31013,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Login = __webpack_require__(481);
+var _Login = __webpack_require__(1019);
 
 var _Login2 = _interopRequireDefault(_Login);
 
@@ -75764,6 +75783,232 @@ module.exports = function() {
 	throw new Error("define cannot be used indirect");
 };
 
+
+/***/ }),
+/* 1018 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Login = __webpack_require__(481);
+
+var _Login2 = _interopRequireDefault(_Login);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Login = function (_React$Component) {
+  _inherits(Login, _React$Component);
+
+  function Login(props) {
+    _classCallCheck(this, Login);
+
+    var _this = _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this, props));
+
+    var storedMessage = localStorage.getItem('admin');
+    var successMessage = '';
+    //si hay algo en el storage si existio un token
+    if (storedMessage) {
+      //pasamos el token a la variable local successMessage
+      successMessage = storedMessage;
+      //y rremovemos el token del localStorage
+      localStorage.removeItem('token');
+    }
+    _this.state = {
+      errors: {},
+      user: {
+        email: '',
+        password: ''
+      }
+    };
+    _this.home = _this.home.bind(_this);
+    _this.onChange = _this.onChange.bind(_this);
+    _this.processForm = _this.processForm.bind(_this);
+    return _this;
+  }
+
+  _createClass(Login, [{
+    key: 'home',
+    value: function home() {
+      this.props.history.push('/');
+    }
+  }, {
+    key: 'onChange',
+    value: function onChange(e) {
+      var user = this.state.user;
+      var name = e.target.name;
+      user[name] = e.target.value;
+
+      this.setState({
+        user: user
+      });
+    }
+  }, {
+    key: 'processForm',
+    value: function processForm(event) {
+      var _this2 = this;
+
+      // quita
+      event.preventDefault();
+
+      // create a string for an HTTP body message
+      var email = encodeURIComponent(this.state.user.email);
+      var password = encodeURIComponent(this.state.user.password);
+      var formData = 'email=' + email + '&password=' + password;
+
+      // creamos una peticion
+      var xhr = new XMLHttpRequest();
+      xhr.open('post', '/admin/login');
+      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+      xhr.responseType = 'json';
+      xhr.addEventListener('load', function () {
+        if (xhr.status === 200) {
+          // success
+
+          // borra los estados de cualquier
+          _this2.setState({
+            errors: {}
+          });
+          localStorage.setItem('admin', xhr.response.token);
+          console.log('The form is valid');
+        } else {
+          // failure
+
+          // si ajax hubo un error lo guarad en const
+          var errors = xhr.response.errors ? xhr.response.errors : {};
+          // errors.summary = xhr.response.message;
+          console.log(errors);
+          _this2.setState({
+            errors: errors
+          });
+        }
+      });
+      xhr.send(formData);
+    }
+  }, {
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      document.body.className = '';
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(_Login2.default, {
+        onSubmit: this.processForm,
+        home: this.home,
+        user: this.state.user,
+        onChange: this.onChange,
+        errors: this.state.errors,
+        successMessage: this.state.successMessage
+      });
+    }
+  }]);
+
+  return Login;
+}(_react2.default.Component);
+
+exports.default = Login;
+
+/***/ }),
+/* 1019 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _semanticUiReact = __webpack_require__(971);
+
+var _TextField = __webpack_require__(781);
+
+var _TextField2 = _interopRequireDefault(_TextField);
+
+var _RaisedButton = __webpack_require__(775);
+
+var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var CardExampleExpandable = function CardExampleExpandable(_ref) {
+  var home = _ref.home,
+      user = _ref.user,
+      onChange = _ref.onChange,
+      onSubmit = _ref.onSubmit;
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      _semanticUiReact.Segment,
+      { clearing: true },
+      _react2.default.createElement(
+        _semanticUiReact.Header,
+        { as: 'h2', textAlign: 'center', onClick: home },
+        'Ferreterias'
+      )
+    ),
+    _react2.default.createElement(
+      'form',
+      { action: '/', onSubmit: onSubmit },
+      _react2.default.createElement(
+        'div',
+        { className: 'Field' },
+        _react2.default.createElement(_TextField2.default, {
+          floatingLabelText: 'Email',
+          name: 'email',
+          hintText: 'Email',
+          id: 'Field',
+          onChange: onChange,
+          value: user.email,
+          required: true,
+          type: 'email'
+        })
+      ),
+      _react2.default.createElement(
+        'div',
+        { className: 'Field' },
+        _react2.default.createElement(_TextField2.default, {
+          floatingLabelText: 'Password',
+          name: 'password',
+          id: 'Field',
+          type: 'password',
+          onChange: onChange,
+          value: user.password,
+          required: true
+        })
+      ),
+      _react2.default.createElement(
+        'div',
+        { className: 'Button' },
+        _react2.default.createElement(_RaisedButton2.default, { type: 'submit', label: 'Login', buttonStyle: { borderRadius: '15px' }, className: 'buttonHome', primary: true })
+      )
+    )
+  );
+};
+
+exports.default = CardExampleExpandable;
 
 /***/ })
 /******/ ]);

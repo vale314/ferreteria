@@ -3,15 +3,23 @@ const Admin = require('mongoose').model('Admins')
 module.exports.init= () =>{
       const userData = {
         email: "admin@hotmail.com",
-        password: "classs",
+        password: "cisco",
         name: "Valentine"
       };
-       const newUser = new Admin(userData);
 
-      const promise = newUser.save()
-      promise.then(
-        console.log('restaurado')
-      )
+      Admin.remove({},(err)=>{
+        if(err)
+          console.log(err)
+      }).then(()=>{
+        const newUser = new Admin(userData);
+        const promise = newUser.save()
+        promise.then(()=>{
+            console.log('Restaurado')
+          }
+        )
+      })
+
+
 
 
       }

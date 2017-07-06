@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginCompo from '../../componets/login/Login.jsx'
+import LoginCompo from '../../../componets/ferreteria/login/Login.jsx'
 
 class Login extends React.Component {
   constructor(props){
@@ -56,7 +56,7 @@ class Login extends React.Component {
 
         // save the token
 
-        
+
 
         console.log('The form is valid');
       } else {

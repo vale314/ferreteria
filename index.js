@@ -4,9 +4,12 @@ const app = express();
 const config = require('./config/index.json');
 const passport = require('passport');
 
+
 require('./server/base/index').connect(config.dbUri);
 
 require('./server/functions/admin/ini').init()
+
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -15,8 +18,13 @@ app.use(express.static('./server/dev/static/'));
 app.use(express.static('./client/dist/'));
 
 
+app.use(passport.initialize());
+
+const localLoginStrategy = require('./server/passport/login/login')
 
 
+
+passport.use('local-login',localLoginStrategy);
 
 const admRoutes = require('./server/routes/admin/admin');
 app.use('/admin', admRoutes);
