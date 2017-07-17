@@ -22,15 +22,20 @@ app.use(passport.initialize());
 
 const localLoginStrategy = require('./server/passport/login/login')
 
-
-
 passport.use('local-login',localLoginStrategy);
 
-const admRoutes = require('./server/routes/admin/admin');
-app.use('/admin', admRoutes);
+const authCheckMiddlewareAdmin = require('./server/middleware/admin-auth.js')
+app.use('/admin',authCheckMiddlewareAdmin)
+
+
+const admRoutes = require('./server/routes/login/login');
+app.use('/auth', admRoutes);
 
 const otherRoutes = require('./server/routes/other/home');
 app.use('/', otherRoutes);
+
+
+
 
 
 app.listen(3001 /*process.env.PORT || 3000  ,*/ ,'192.168.1.76', () => {

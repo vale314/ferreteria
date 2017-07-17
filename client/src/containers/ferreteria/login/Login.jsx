@@ -17,7 +17,7 @@ class Login extends React.Component {
   }
 
   home(){
-    this.props.history.push('/')
+    this.props.history.push('/admin')
   }
 
   onChange(e){
@@ -42,7 +42,7 @@ class Login extends React.Component {
 
     // creamos una peticion
     const xhr = new XMLHttpRequest();
-    xhr.open('post', '/admin/login');
+    xhr.open('post', '/auth/login');
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.responseType = 'json';
     xhr.addEventListener('load', () => {
@@ -55,7 +55,7 @@ class Login extends React.Component {
         });
 
         // save the token
-
+        localStorage.setItem('admin',xhr.response.token)
 
 
         console.log('The form is valid');

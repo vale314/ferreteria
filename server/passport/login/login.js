@@ -12,7 +12,6 @@ module.exports= new LocalStrategy({
   session: false,
   passReqToCallback: true
 },(req, email, password, done)=>{
-
     Admin.findOne({ email: email }, function(err, admin) {
       if (err) { return done(err); }
       if (!admin) {
@@ -32,8 +31,11 @@ module.exports= new LocalStrategy({
              error.password =('Incorrect The Password')
              return done(error);
            }
+           const payload = {
+             sub: admin._id
+           };
 
-           const token = jsw.sign(admin.id,config.jwtSecret)
+           const token = jsw.sign(payload,config.jwtSecret)
            return done(null, token, admin.name);
        })
 

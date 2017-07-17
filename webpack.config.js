@@ -22,7 +22,7 @@ module.exports ={
       //babel
       query:{
         //react a es2015
-         presets: ['es2015', 'stage-2', 'react'],
+         presets: ['es2015', 'stage-2', 'react','es2017'],
          plugins: ['babel-plugin-transform-decorators-legacy'],
       }
     }],

@@ -6,6 +6,8 @@ import promise from "redux-promise-middleware"
 
 import reducer from "./reducer/index"
 
-const middleware = applyMiddleware( thunk, logger)
+const middleware = applyMiddleware(promise(), thunk, logger)
 
-export default createStore(reducer, middleware)
+const state = localStorage.getItem('reduxState') ? JSON.parse(localStorage.getItem('reduxState')) : {}
+
+export default createStore(reducer, state, middleware)

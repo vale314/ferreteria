@@ -6,7 +6,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 
 
-const CardExampleExpandable = ({home, user, onChange, onSubmit, successMessage, errors}) => (
+const CardExampleExpandable = ({home, user, onChange, onSubmit, errors}) => (
   <div>
     <Segment clearing>
         <Header as='h2' textAlign='center' onClick={home}  >
@@ -15,8 +15,7 @@ const CardExampleExpandable = ({home, user, onChange, onSubmit, successMessage, 
       </Segment>
       <form action="/" onSubmit={onSubmit}>
 
-      {successMessage && <p className="success-message">{successMessage}</p>}
-      {errors.summary && <p className="error-message">{errors.summary}</p>}
+
       <div className='Field' >
         <TextField
                   floatingLabelText="Email"
