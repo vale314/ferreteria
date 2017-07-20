@@ -40,16 +40,11 @@ class Login extends React.Component {
 
 
 
-  home(){
-    if(store.getState().state === 200){
-      console.log(this.props)
-      return this.props.history.push('/')
+  home(state){
+    if(state == 200){
+      // return this.props.history.replace('/')
+       document.location.href = '/'
     }
-    else if(store.getState().state === 400){
-      console.log('400')
-      return Auth.desauthenticateUser();
-    }
-
   }
 
   onChange(e){
@@ -72,9 +67,10 @@ class Login extends React.Component {
     const password = encodeURIComponent(this.state.user.password);
     const formData = `email=${email}&password=${password}`;
 
-    store.dispatch(postLogin(formData)).then(()=>{
-      console.log('listo')
-     })
+    store.dispatch(postLogin(formData))
+    .then((state)=>{
+      return this.home(state)
+    })
 }
 
   render() {
