@@ -1,5 +1,3 @@
-import axios from "axios";
-
 function post(formData,callback){
   const xhr = new XMLHttpRequest();
   xhr.open('post', '/auth/login');

@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 //componets
 import LoginCompo from '../../../componets/admin/login/Login.jsx'
 import Auth from '../../../modules/Auth'
-import {postLogin} from  '../actions/login'
+import {postLogin} from  './actions'
 
 //store
 import store from '../../../redux/store'

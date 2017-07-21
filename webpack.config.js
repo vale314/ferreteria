@@ -13,19 +13,37 @@ module.exports ={
   module : {
 
 
-    loaders:[{
-      //lea todo lo que sea jsx
-      test:/\.jsx?$/,
-      //o busque dentro de client
-      include: path.join(__dirname, '/client/src'),
-      loader: 'babel-loader',
-      //babel
-      query:{
-        //react a es2015
-         presets: ['es2015', 'stage-2', 'react','es2017'],
-         plugins: ['babel-plugin-transform-decorators-legacy'],
-      }
-    }],
+    loaders:[
+        {
+        //lea todo lo que sea jsx
+          test:/\.jsx?$/,
+          //o busque dentro de client
+          include: path.join(__dirname, '/client/src'),
+          loader: 'babel-loader',
+          //babel
+          query:{
+            //react a es2015
+             presets: ['es2015', 'stage-2', 'react','es2017'],
+             plugins: ['babel-plugin-transform-decorators-legacy'],
+          }
+      },
+      {
+        test: /\.svg$/,
+        loaders: [
+          {
+            loader: 'babel-loader',
+            query: {
+              presets: ['es2015']
+            }
+          },
+          {
+            loader: 'react-svg-loader',
+            query: {
+              jsx: true
+            }
+          }
+       ]
+     }],
   },
 
   watch:true

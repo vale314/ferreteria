@@ -6,17 +6,17 @@ import { Header, Segment,Button, Checkbox, Modal, Image, Icon} from 'semantic-ui
 import Menu from './menu/index.jsx'
 
 
-const CardExampleExpandable = () => (
+const CardExampleExpandable = ({handleTap,open,children}) => (
   <div>
     <Segment clearing>
         <Header as='h2' textAlign='center'>
-          <Menu/>
+          <Menu handleTap={handleTap} open={open}/>
           <div style={{margin:'0',display:'inline'}}>
             HomePageAdmin
           </div>
         </Header>
-
     </Segment>
+    {children}
   </div>
 );
 

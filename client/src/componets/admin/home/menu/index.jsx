@@ -1,27 +1,39 @@
 import React from 'react';
 
 //material-ui
-import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
-import IconMenu from 'material-ui/IconMenu';
+import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
-import IconButton from 'material-ui/IconButton';
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import RaisedButton from 'material-ui/RaisedButton';
+import FontIcon from 'material-ui/FontIcon';
+  //Avatar
+import Avatar from 'material-ui/Avatar';
+import FileFolder from 'material-ui/svg-icons/file/folder';
+import List from 'material-ui/List/List';
+import ListItem from 'material-ui/List/ListItem';
 
-const Menu = () => (
+
+const Menu = ({handleTap,open}) => (
   <div style={{float:'left'}}>
-    <IconMenu
-        iconButtonElement={<IconButton style={{textAlign:'left'}}><MoreVertIcon /></IconButton>}
-        anchorOrigin={{horizontal: 'left', vertical: 'top'}}
-        targetOrigin={{horizontal: 'left', vertical: 'top'}}
-    >
-      <MenuItem primaryText="Cuentas" />
-      <MenuItem primaryText="Ventas" />
-      <MenuItem primaryText="Contabilidad" />
-      <MenuItem primaryText="Productos" />
-      <MenuItem primaryText="Sign out" />
-    </IconMenu>
-  </div>
+      <i onMouseOver={handleTap} className="material-icons">home</i>
+        <Drawer open={open} >
+        <List>
+            <ListItem
+              disabled={true}
+              leftAvatar={
+                <Avatar src="https://pbs.twimg.com/profile_images/425000350202867713/omeMN2VM.jpeg" />
+              }
+            >
+              Image Avatar
+            </ListItem>
+          </List>
+            <MenuItem>Menu Item</MenuItem>
+            <MenuItem>Menu Item 2</MenuItem>
+            <RaisedButton
+            label="Close Drawer"
+            onTouchTap={handleTap}
+            />
+        </Drawer>
+      </div>
 )
 
 export default Menu;
