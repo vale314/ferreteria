@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginCompo from '../../../componets/ferreteria/login/Login.jsx'
+import LoginCompo from '../../../componets/ferreteria/login/Index.jsx'
 
 class Login extends React.Component {
   constructor(props){

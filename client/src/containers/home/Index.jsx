@@ -1,5 +1,6 @@
 import React from 'react';
-import CuentasCompo from '../../../../componets/admin/administacion/index.jsx'
+import LoginCompo from '../../componets/home/Index.jsx'
+import Auth from '../../modules/Auth'
 
 class Login extends React.Component {
   constructor(props){
@@ -8,9 +9,8 @@ class Login extends React.Component {
   }
 
 
-
   render() {
-    return (<CuentasCompo
+    return (<LoginCompo
              />);
   }
 

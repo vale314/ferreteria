@@ -8,11 +8,9 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 const CardExampleExpandable = () => (
   <div>
-    <Segment clearing>
         <Header as='h2' textAlign='center'>
-            Cuentas
+            HomePageAdmin
         </Header>
-      </Segment>
   </div>
 );
 

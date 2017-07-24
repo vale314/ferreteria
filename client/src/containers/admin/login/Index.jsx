@@ -4,7 +4,7 @@ import { connect } from "react-redux"
 import PropTypes from 'prop-types'
 
 //componets
-import LoginCompo from '../../../componets/admin/login/Login.jsx'
+import LoginCompo from '../../../componets/admin/login/Index.jsx'
 import Auth from '../../../modules/Auth'
 import {postLogin} from  './actions'
 
