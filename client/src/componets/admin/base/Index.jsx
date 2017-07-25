@@ -10,7 +10,7 @@ import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
   //dependencies
-import Menu from '../menu/Index.jsx'
+import Menu from '../../../containers/admin/menuLeft/Index.jsx'
 import MenuRight from '../../../containers/admin/menuRight/SignOut.jsx'
 //routes
 import HeaderRoutes from './routes/HeadersRoutes.jsx'
@@ -18,11 +18,13 @@ import BodyRoutes from './routes/BodyRoutes.jsx'
 
 
 
-const CardExampleExpandable = ({handleTap,open,handleClick}) => (
+const CardExampleExpandable = () => (
   <div>
     <Segment clearing>
         <Header as='h2' textAlign='center'>
-          <Menu handleTap={handleTap} open={open} handleClick={handleClick}/>
+        <Route path='/' render={(props) => (
+          <Menu {...props}  />
+        )}/>
           <MenuRight />
           <HeaderRoutes />
         </Header>

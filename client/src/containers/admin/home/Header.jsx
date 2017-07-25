@@ -7,7 +7,7 @@ class Adm extends React.Component {
   }
 
 
-  
+
 
   render() {
     return(
