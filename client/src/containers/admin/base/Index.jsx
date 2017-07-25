@@ -1,5 +1,7 @@
+//dev
 import React from 'react';
 import { connect } from "react-redux"
+import Rx  from '@reactivex/rxjs'
 
 //componets
 import BaseCompo from '../../../componets/admin/base/Index.jsx'
@@ -9,13 +11,17 @@ import Auth from '../../../modules/Auth'
 //actions
 import {HANDLE_TAP_HOME} from './actions/Open'
 import {ROUTE} from './actions/Route'
+
 //store
 import store from '../../../redux/store'
 
+//functions
+import {authentication} from './functions/Ajax'
 
 @connect((store)=>{
   return{
-    open:store.homeHome.open
+    open:store.adminBase.open,
+    adminRoute:store.adminRoute.route
   }
 })
 
@@ -27,6 +33,9 @@ class Base extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  ajax(){
+      authentication(this.props)
+  }
 
   handleTap(){
     store.dispatch(HANDLE_TAP_HOME())
@@ -34,6 +43,11 @@ class Base extends React.Component {
 
   handleClick(route){
     store.dispatch(ROUTE(route,this.props))
+    // this.ajax()
+  }
+
+  componentWillMount(){
+    // this.ajax()
   }
 
   render() {

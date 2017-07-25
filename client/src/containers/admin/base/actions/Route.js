@@ -7,6 +7,5 @@ export function ROUTE(route,props) {
            props.history.replace(route)
            dispatch({type:'SAVE_ROUTE',route:route})
            dispatch(HANDLE_TAP_HOME())
-           
    }
  }
