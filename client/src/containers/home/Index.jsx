@@ -8,6 +8,9 @@ class Login extends React.Component {
 
   }
 
+  componentWillMount(){
+    document.body.className = 'background'
+  }
 
   render() {
     return (<LoginCompo

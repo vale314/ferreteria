@@ -4,7 +4,6 @@ import { connect } from "react-redux"
 
 //componets
 import Menu from '../../../componets/admin/menu/Index.jsx'
-import Auth from '../../../modules/Auth'
 
 
 //actions
@@ -27,7 +26,6 @@ import {authentication} from './functions/Ajax'
 class Base extends React.Component {
   constructor(props){
     super(props)
-    console.log(this.props)
     this.handleTap = this.handleTap.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
@@ -42,11 +40,11 @@ class Base extends React.Component {
 
   handleClick(route){
     store.dispatch(ROUTE(route,this.props))
-    this.ajax()
+    // this.ajax()
   }
 
   componentWillMount(){
-    // this.ajax()
+    //  this.ajax()
   }
 
   render() {

@@ -14,6 +14,18 @@ export default function reducer(state={
       case "SAVE_STATE_ADMIN_LOGIN":{
         return {...state, state:action.state}
       }
+      case "DELETE_TOKEN":{
+        return {...state, token:''}
+      }
+      case "DELETE_ERROR":{
+        return {...state, error:{}}
+      }
+      case "DELETE_STATE":{
+        return {...state, state:''}
+      }
+      case "DESAUTHENTICATE":{
+        return {...state, state:'',error:{},state:''}
+      }
     }
 
     return state

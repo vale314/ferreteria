@@ -17,15 +17,16 @@ import HeaderRoutes from './routes/HeadersRoutes.jsx'
 import BodyRoutes from './routes/BodyRoutes.jsx'
 
 
-
 const CardExampleExpandable = () => (
   <div>
     <Segment clearing>
         <Header as='h2' textAlign='center'>
-        <Route path='/' render={(props) => (
-          <Menu {...props}  />
-        )}/>
-          <MenuRight />
+          <Route path='/' render={(props) => (
+            <Menu {...props}  />
+          )}/>
+          <Route path='/' render={(props) => (
+            <MenuRight {...props} />
+          )}/>
           <HeaderRoutes />
         </Header>
     </Segment>

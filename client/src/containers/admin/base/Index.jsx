@@ -15,9 +15,6 @@ class Base extends React.Component {
   }
 
 
-  componentWillMount(){
-    // this.ajax()
-  }
 
   render() {
     return (<BaseCompo

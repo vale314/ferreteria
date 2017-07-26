@@ -9,7 +9,7 @@ const Styles={
   float:'right',
 }
 
-const MenuRight = () =>(
+const MenuRight = ({handleHomeClick}) =>(
   <div style={Styles}>
       <IconMenu
       iconButtonElement={<IconButton style={{padding:'0px',height:'0px'}}><MoreVertIcon /></IconButton>}
@@ -17,11 +17,11 @@ const MenuRight = () =>(
       targetOrigin={{horizontal: 'right', vertical: 'top'}}
 
       >
-      <MenuItem primaryText="Refresh" />
-      <MenuItem primaryText="Send feedback" />
-      <MenuItem primaryText="Settings" />
-      <MenuItem primaryText="Help" />
-      <MenuItem primaryText="Sign out" />
+      <MenuItem onTouchTap={()=>handleHomeClick('/adm/refresh')} primaryText="Refresh" />
+      <MenuItem onTouchTap={()=>handleHomeClick('/adm/sendeedback')} primaryText="Send feedback" />
+      <MenuItem onTouchTap={()=>handleHomeClick('/adm/settings')} primaryText="Settings" />
+      <MenuItem onTouchTap={()=>handleHomeClick('/adm/help')} primaryText="Help" />
+      <MenuItem onTouchTap={()=>handleHomeClick('/adm/signout')} primaryText="Sign out" />
       </IconMenu>
     </div>
 )

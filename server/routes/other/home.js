@@ -3,10 +3,10 @@ const router = new express.Router();
 const path = require('path');
 
 
-
-
 router.get('*', (req,res)=>{
-  res.sendFile(path.join(__dirname, '../../../server/dev/static/', 'index.html'));
+  res.render('../../../dev/handlebars/views/index',{
+    layout:false
+  });
 })
 
 

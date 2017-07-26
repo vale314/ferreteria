@@ -1,4 +1,4 @@
 {
   "dbUri": "mongodb://localhost/company",
-  "jwtSecret": "udg"
+  "jwtSecret": "Cisco"
 }

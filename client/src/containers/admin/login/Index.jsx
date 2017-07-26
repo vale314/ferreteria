@@ -44,6 +44,7 @@ class Login extends React.Component {
     if(state == 200){
       // return this.props.history.replace('/')
        document.location.href = '/'
+       document.body.className=''
     }
   }
 
