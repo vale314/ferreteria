@@ -24,7 +24,7 @@ export default function reducer(state={
         return {...state, state:''}
       }
       case "DESAUTHENTICATE":{
-        return {...state, state:'',error:{},state:''}
+        return {...state, state:'',error:{},token:''}
       }
     }
 

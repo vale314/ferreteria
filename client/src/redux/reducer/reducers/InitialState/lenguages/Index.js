@@ -1,10 +1,10 @@
 export default function reducer(state={
-    route:'/'
+    lenguage:'ES'
   }, action) {
 
     switch (action.type) {
-      case "SAVE_ROUTE": {
-        return {...state, route: action.route}
+      case "lenguage": {
+        return {...state, lenguage: action.payload}
       }
     }
 

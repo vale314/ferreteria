@@ -19,7 +19,7 @@ import {authentication} from './functions/Ajax'
 @connect((store)=>{
   return{
     open:store.adminBase.open,
-    adminRoute:store.adminRoute.route
+    device:store.device.isMobile
   }
 })
 

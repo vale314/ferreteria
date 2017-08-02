@@ -10,6 +10,10 @@ import {REMOVE_TOKEN} from './function'
 //connect
 import {connect} from 'react-redux'
 
+//import connect direct
+import store from '../../../redux/store'
+
+
 @connect()
 
 class Base extends React.Component {
@@ -20,7 +24,7 @@ class Base extends React.Component {
 
   handleHomeClick(e){
     if(e === '/adm/signout')
-      return this.props.dispatch(REMOVE_TOKEN())
+      return store.dispatch(REMOVE_TOKEN())
     this.props.history.replace(e)
 
   }

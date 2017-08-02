@@ -1,22 +1,35 @@
 import React from 'react';
-import LoginCompo from '../../componets/home/Index.jsx'
+import HomeCompo from '../../componets/home/Index.jsx'
 import Auth from '../../modules/Auth'
+import {LENGUAGES} from '../actions/Lenguages'
+import {connect} from 'react-redux'
 
-class Login extends React.Component {
+@connect((store)=>{
+  return{
+    lenguage:store.lenguage.lenguage
+  }
+})
+
+class Home extends React.Component {
   constructor(props){
     super(props)
-
+    this.handleClick = this.handleClick.bind(this)
   }
 
   componentWillMount(){
     document.body.className = 'background'
   }
 
+  handleClick(event){
+    this.props.dispatch(LENGUAGES(event))
+  }
   render() {
-    return (<LoginCompo
+    return (<HomeCompo
+                handleClick={this.handleClick}
+                lenguage={this.props.lenguage}
              />);
   }
 
 }
 
-export default Login;
+export default Home;
