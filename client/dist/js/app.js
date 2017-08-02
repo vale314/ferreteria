@@ -35471,6 +35471,10 @@ var _Header3 = __webpack_require__(522);
 
 var _Header4 = _interopRequireDefault(_Header3);
 
+var _Header5 = __webpack_require__(1097);
+
+var _Header6 = _interopRequireDefault(_Header5);
+
 var _ = __webpack_require__(509);
 
 var _2 = _interopRequireDefault(_);
@@ -35488,6 +35492,7 @@ var CardExampleExpandable = function CardExampleExpandable() {
       null,
       _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Header4.default }),
       _react2.default.createElement(_reactRouterDom.Route, { path: '/adm/cuentas', component: _Header2.default }),
+      _react2.default.createElement(_reactRouterDom.Route, { path: '/adm/settings', component: _Header6.default }),
       _react2.default.createElement(_reactRouterDom.Route, { component: _2.default })
     )
   );
@@ -35511,14 +35516,6 @@ var _react = __webpack_require__(1);
 var _react2 = _interopRequireDefault(_react);
 
 var _semanticUiReact = __webpack_require__(63);
-
-var _TextField = __webpack_require__(86);
-
-var _TextField2 = _interopRequireDefault(_TextField);
-
-var _RaisedButton = __webpack_require__(72);
-
-var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35917,7 +35914,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var CardExampleExpandable = function CardExampleExpandable(_ref) {
   var handleClick = _ref.handleClick,
-      lenguage = _ref.lenguage;
+      lenguageUser = _ref.lenguageUser;
   return _react2.default.createElement(
     'div',
     null,
@@ -35927,7 +35924,7 @@ var CardExampleExpandable = function CardExampleExpandable(_ref) {
       _react2.default.createElement(
         _semanticUiReact.Header,
         { as: 'h2', textAlign: 'center' },
-        lenguage == 'ES' ? 'Introduccion' : 'Introduction',
+        lenguageUser == 'ES' ? 'Introduccion' : 'Introduction',
         _react2.default.createElement(
           'div',
           { style: { float: 'right' } },
@@ -35935,12 +35932,12 @@ var CardExampleExpandable = function CardExampleExpandable(_ref) {
             onTouchTap: function onTouchTap() {
               return handleClick('ES');
             },
-            disabled: lenguage == 'ES' ? true : false }),
+            disabled: lenguageUser == 'ES' ? true : false }),
           _react2.default.createElement(_FlatButton2.default, { label: 'EN', style: { padding: '0px' },
             onTouchTap: function onTouchTap() {
               return handleClick('EN');
             },
-            disabled: lenguage == 'EN' ? true : false })
+            disabled: lenguageUser == 'EN' ? true : false })
         )
       )
     )
@@ -36750,7 +36747,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var Home = (_dec = (0, _reactRedux.connect)(function (store) {
   return {
-    lenguage: store.lenguage.lenguage
+    lenguageUser: store.lenguageUser.lenguage
   };
 }), _dec(_class = function (_React$Component) {
   _inherits(Home, _React$Component);
@@ -36779,7 +36776,7 @@ var Home = (_dec = (0, _reactRedux.connect)(function (store) {
     value: function render() {
       return _react2.default.createElement(_Index2.default, {
         handleClick: this.handleClick,
-        lenguage: this.props.lenguage
+        lenguageUser: this.props.lenguageUser
       });
     }
   }]);
@@ -36809,21 +36806,26 @@ var _base = __webpack_require__(533);
 
 var _base2 = _interopRequireDefault(_base);
 
+var _lenguages = __webpack_require__(1095);
+
+var _lenguages2 = _interopRequireDefault(_lenguages);
+
 var _device = __webpack_require__(1088);
 
 var _device2 = _interopRequireDefault(_device);
 
-var _lenguages = __webpack_require__(1090);
+var _lenguages3 = __webpack_require__(1090);
 
-var _lenguages2 = _interopRequireDefault(_lenguages);
+var _lenguages4 = _interopRequireDefault(_lenguages3);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = (0, _redux.combineReducers)({
     adminLogin: _Login2.default,
     adminBase: _base2.default,
+    adminLenguages: _lenguages2.default,
     device: _device2.default,
-    lenguage: _lenguages2.default
+    lenguageUser: _lenguages4.default
 });
 
 /***/ }),
@@ -84522,6 +84524,120 @@ function LENGUAGES(lenguage) {
       localStorage.setItem('reduxState', JSON.stringify(getState()));
    };
 }
+
+/***/ }),
+/* 1095 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+exports.default = reducer;
+function reducer() {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
+        lenguageAdmin: 'ES'
+    };
+    var action = arguments[1];
+
+
+    switch (action.type) {
+        case "lenguageAdmin":
+            {
+                return _extends({}, state, { lenguageAdmin: action.payload });
+            }
+    }
+
+    return state;
+}
+
+/***/ }),
+/* 1096 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _semanticUiReact = __webpack_require__(63);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var CardExampleExpandable = function CardExampleExpandable() {
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      _semanticUiReact.Header,
+      { as: 'h2', textAlign: 'center' },
+      'Settings'
+    )
+  );
+};
+
+exports.default = CardExampleExpandable;
+
+/***/ }),
+/* 1097 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Header = __webpack_require__(1096);
+
+var _Header2 = _interopRequireDefault(_Header);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Settings = function (_React$Component) {
+  _inherits(Settings, _React$Component);
+
+  function Settings(props) {
+    _classCallCheck(this, Settings);
+
+    return _possibleConstructorReturn(this, (Settings.__proto__ || Object.getPrototypeOf(Settings)).call(this, props));
+  }
+
+  _createClass(Settings, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(_Header2.default, null);
+    }
+  }]);
+
+  return Settings;
+}(_react2.default.Component);
+
+exports.default = Settings;
 
 /***/ })
 /******/ ]);

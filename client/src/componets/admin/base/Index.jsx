@@ -30,7 +30,7 @@ const CardExampleExpandable = () => (
           <HeaderRoutes />
         </Header>
     </Segment>
-
+      
   </div>
 );
 

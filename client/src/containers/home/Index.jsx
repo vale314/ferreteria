@@ -6,7 +6,7 @@ import {connect} from 'react-redux'
 
 @connect((store)=>{
   return{
-    lenguage:store.lenguage.lenguage
+    lenguageUser:store.lenguageUser.lenguage
   }
 })
 
@@ -26,7 +26,7 @@ class Home extends React.Component {
   render() {
     return (<HomeCompo
                 handleClick={this.handleClick}
-                lenguage={this.props.lenguage}
+                lenguageUser={this.props.lenguageUser}
              />);
   }
 

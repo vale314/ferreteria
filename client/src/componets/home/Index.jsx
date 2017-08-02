@@ -6,20 +6,20 @@ import FlatButton from 'material-ui/FlatButton';
 
 
 
-const CardExampleExpandable = ({handleClick,lenguage}) => (
+const CardExampleExpandable = ({handleClick,lenguageUser}) => (
   <div>
     <Segment clearing>
         <Header as='h2' textAlign='center'>
-          {lenguage=='ES' ? 'Introduccion' : 'Introduction'}
+          {lenguageUser=='ES' ? 'Introduccion' : 'Introduction'}
             <div style={{float:'right'}}>
 
             <FlatButton label="ES" style={{padding:'0px'}}
              onTouchTap={()=>handleClick('ES')}
-              disabled={lenguage =='ES' ? true: false }/>
+              disabled={lenguageUser =='ES' ? true: false }/>
 
             <FlatButton label="EN" style={{padding:'0px'}}
              onTouchTap={()=>handleClick('EN')}
-              disabled={lenguage =='EN' ? true: false}/>
+              disabled={lenguageUser =='EN' ? true: false}/>
             </div>
         </Header>
       </Segment>

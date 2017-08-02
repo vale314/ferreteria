@@ -7,7 +7,7 @@ import { Header} from 'semantic-ui-react'
 const CardExampleExpandable = () => (
   <div>
         <Header as='h2' textAlign='center'>
-            HomePageAdmin
+            Settings
         </Header>
   </div>
 );
