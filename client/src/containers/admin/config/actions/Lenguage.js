@@ -1,8 +1,7 @@
 export function LENGUAGES(lenguage) {
 
    return function(dispatch,getState){
-
-           dispatch({type:'personLenguage',payload:lenguage})
+           dispatch({type:'adminLenguage',payload:lenguage})
            localStorage.setItem('reduxState',JSON.stringify(getState()))
 
    }

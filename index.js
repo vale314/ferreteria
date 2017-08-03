@@ -5,13 +5,17 @@ const passport = require('passport');
 const exphbs  = require('express-handlebars');
 const path = require('path')
 
+
+
 //config
 const config = require('./config/index.json');
 
 
 
 //initalize
-require('./server/base/index').connect(config.dbUri);
+require('./server/base/mongoDb').connect(config.dbUri);
+require('./server/base/redis').connect();
+
 require('./server/functions/admin/ini').init()
 
 

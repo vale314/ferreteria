@@ -2,14 +2,14 @@ import { combineReducers } from "redux"
 
 import adminLogin from './reducers/Admin/login/Login'
 import adminBase from './reducers/Admin/base'
-import adminLenguages from './reducers/Admin/lenguages'
+import adminLenguage from './reducers/Admin/lenguages'
 import device from './reducers/InitialState/device'
-import lenguageUser from './reducers/InitialState/lenguages'
+import personLenguage from './reducers/InitialState/lenguages'
 
 export default combineReducers({
     adminLogin: adminLogin,
     adminBase: adminBase,
-    adminLenguages: adminLenguages,
+    adminLenguage: adminLenguage,
     device: device,
-    lenguageUser:lenguageUser
+    personLenguage:personLenguage
 })

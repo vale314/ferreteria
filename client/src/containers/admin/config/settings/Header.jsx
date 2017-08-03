@@ -1,6 +1,6 @@
 import React from 'react';
 import SettingsCompo from '../../../../componets/admin/config/settings/Header.jsx'
-class Settings extends React.Component {
+class SettingsHeader extends React.Component {
   constructor(props){
     super(props)
 
@@ -17,4 +17,4 @@ class Settings extends React.Component {
 
 }
 
-export default Settings;
+export default SettingsHeader;

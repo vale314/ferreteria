@@ -1,10 +1,10 @@
 export default function reducer(state={
-    lenguageAdmin:'ES'
+    adminLenguage:'ES'
   }, action) {
 
     switch (action.type) {
-      case "lenguageAdmin": {
-        return {...state, lenguageAdmin: action.payload}
+      case "adminLenguage": {
+        return {...state, adminLenguage: action.payload}
       }
     }
 
