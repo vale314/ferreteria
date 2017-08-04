@@ -30,6 +30,7 @@ app.set('view engine','hbs')
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 
 app.use(express.static('./server/dev/static/'));
@@ -49,11 +50,14 @@ const phoneCheckMiddleware = require('./server/middleware/phone-Check.js')
 app.use('*',phoneCheckMiddleware)
 
 
-const admRoutes = require('./server/routes/login/login');
-app.use('/auth', admRoutes);
+const authRoutes = require('./server/routes/login/login');
+app.use('/auth', authRoutes);
 
 const otherRoutes = require('./server/routes/other/home');
 app.use('/', otherRoutes);
+
+const adminRoutes = require('./server/routes/admin/admin');
+app.use('/admin',adminRoutes)
 
 
 

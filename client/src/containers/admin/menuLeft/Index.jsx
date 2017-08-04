@@ -4,7 +4,7 @@ import { connect } from "react-redux"
 
 //componets
 import Menu from '../../../componets/admin/menu/Index.jsx'
-
+import Reload from '../../../componets/admin/reload/Header.jsx'
 
 //actions
 import {HANDLE_TAP_HOME} from './actions/Open'
@@ -14,7 +14,7 @@ import {ROUTE} from './actions/Route'
 import store from '../../../redux/store'
 
 //functions
-import {authentication} from './functions/Ajax'
+import {AJAX} from './actions/Ajax'
 
 @connect((store)=>{
   return{
@@ -28,11 +28,14 @@ class Base extends React.Component {
     super(props)
     this.handleTap = this.handleTap.bind(this);
     this.handleClick = this.handleClick.bind(this);
+
+
+
   }
 
   ajax(){
-      authentication(this.props)
-  }
+      this.props.dispatch(AJAX()).then((state)=>{})
+}
 
   handleTap(){
     store.dispatch(HANDLE_TAP_HOME())
@@ -40,19 +43,21 @@ class Base extends React.Component {
 
   handleClick(route){
     store.dispatch(ROUTE(route,this.props))
-    // this.ajax()
+    this.ajax()
   }
 
   componentWillMount(){
-    //  this.ajax()
+     this.ajax()
   }
 
   render() {
-    return (<Menu
-            handleTap={this.handleTap}
-            open={this.props.open}
-            handleClick={this.handleClick}
-             />);
+
+      return (<Menu
+              handleTap={this.handleTap}
+              open={this.props.open}
+              handleClick={this.handleClick}
+               />);
+
   }
 
 }

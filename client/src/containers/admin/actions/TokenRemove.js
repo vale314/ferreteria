@@ -1,14 +1,14 @@
-import Auth from '../../../../modules/Auth'
+import Auth from '../../../modules/Auth'
 
-export function REMOVE_TOKEN(){
+export function TOKEN_DROP(){
 
   return function(dispatch,getState){
+          Auth.desauthenticateUser()
+          window.location.replace('/')
 
           dispatch({type:'DESAUTHENTICATE'})
           dispatch({type:'HANDLE_TAP_HOME',open:false})
           localStorage.setItem('reduxState',JSON.stringify(getState()))
-          Auth.desauthenticateUser()
-          window.location.replace('/')
 
   }
 
