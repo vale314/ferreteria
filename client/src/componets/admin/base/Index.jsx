@@ -16,9 +16,17 @@ import MenuRight from '../../../containers/admin/menuRight/SignOut.jsx'
 import HeaderRoutes from './routes/HeadersRoutes.jsx'
 import BodyRoutes from './routes/BodyRoutes.jsx'
 
+const views=(isReload)=>{
+  if(isReload)
+    return({display:'inline'})
 
-const CardExampleExpandable = () => (
-  <div>
+  if(!isReload)
+    return({display:'none'})
+
+
+}
+const CardExampleExpandable = ({isReload}) => (
+  <div style={views(isReload)}>
     <Segment clearing>
         <Header as='h2' textAlign='center'>
           <Route path='/' render={(props) => (

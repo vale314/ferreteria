@@ -5,8 +5,14 @@ import { connect } from "react-redux"
 //componets
 import BaseCompo from '../../../componets/admin/base/Index.jsx'
 
+//actions
+import {RELOAD} from './actions'
 
-
+@connect((store)=>{
+  return{
+    isReload:store.adminLogin.token
+  }
+})
 
 class Base extends React.Component {
   constructor(props){
@@ -16,10 +22,14 @@ class Base extends React.Component {
 
 
 
+
   render() {
-    return (<BaseCompo
-            />);
-  }
+      return (<BaseCompo
+                  isReload={this.props.isReload}
+              />);
+    }
+
+
 
 }
 

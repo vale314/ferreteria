@@ -4,7 +4,6 @@ import { connect } from "react-redux"
 
 //componets
 import Menu from '../../../componets/admin/menu/Index.jsx'
-import Reload from '../../../componets/admin/reload/Header.jsx'
 
 //actions
 import {HANDLE_TAP_HOME} from './actions/Open'
