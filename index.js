@@ -43,21 +43,23 @@ const localLoginStrategy = require('./server/passport/login/login')
 
 passport.use('local-login',localLoginStrategy);
 
-const authCheckMiddlewareAdmin = require('./server/middleware/admin-auth.js')
-app.use('/admin',authCheckMiddlewareAdmin)
+//const authCheckMiddlewareAdmin = require('./server/middleware/admin-auth.js')
+//app.use('/admin',authCheckMiddlewareAdmin)
 
 const phoneCheckMiddleware = require('./server/middleware/phone-Check.js')
 app.use('*',phoneCheckMiddleware)
 
+const adminLenguageMiddkeware = require('./server/middleware/admin-Lenguage')
+app.use('*',adminLenguageMiddkeware)
 
 const authRoutes = require('./server/routes/login/login');
 app.use('/auth', authRoutes);
 
-const otherRoutes = require('./server/routes/other/home');
-app.use('/', otherRoutes);
-
 const adminRoutes = require('./server/routes/admin/admin');
 app.use('/admin',adminRoutes)
+
+const otherRoutes = require('./server/routes/other/home');
+app.use('/', otherRoutes);
 
 
 
