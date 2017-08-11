@@ -1,5 +1,6 @@
 export const object = Object.assign({},JSON.parse(localStorage.getItem('reduxState')),{
   device:initialState.device,
+  adminSettings:initialState.adminSettings
   //moreVariablesReducers
 })
 

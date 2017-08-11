@@ -36431,7 +36431,8 @@ var SettingsBody = (_dec = (0, _reactRedux.connect)(function (store) {
     key: 'handleClickSaves',
     value: function handleClickSaves() {
       this.props.dispatch((0, _Saves.SAVES)()).then(function (state) {
-        return console.log(state);
+        if (state) return window.location.reload();
+        return 0;
       });
     }
   }, {
@@ -37299,7 +37300,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var object = exports.object = Object.assign({}, JSON.parse(localStorage.getItem('reduxState')), {
-  device: initialState.device
+  device: initialState.device,
+  adminSettings: initialState.adminSettings
   //moreVariablesReducers
 });
 

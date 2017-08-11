@@ -13,5 +13,12 @@ router.post('/settings/save', (req,res)=>{
   })
 })
 
+router.get('/',(req,res)=>{
+   return res.render('../../../dev/handlebars/views/admin',{
+            layout:false
+          });
+})
+
+
 
 module.exports = router;

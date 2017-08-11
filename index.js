@@ -50,7 +50,9 @@ const phoneCheckMiddleware = require('./server/middleware/phone-Check.js')
 app.use('*',phoneCheckMiddleware)
 
 const adminLenguageMiddkeware = require('./server/middleware/admin-Lenguage')
-app.use('*',adminLenguageMiddkeware)
+app.use('/',adminLenguageMiddkeware)
+
+
 
 const authRoutes = require('./server/routes/login/login');
 app.use('/auth', authRoutes);

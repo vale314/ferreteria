@@ -24,7 +24,9 @@ class SettingsBody extends React.Component {
 
   handleClickSaves(){
     this.props.dispatch(SAVES()).then((state)=>{
-          return console.log(state)
+        if(state)
+            return window.location.reload();
+        return(0)
     })
   }
   render() {
