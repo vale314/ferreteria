@@ -16,15 +16,15 @@ module.exports ={
     loaders:[
         {
         //lea todo lo que sea jsx
-          test:/\.jsx?$/,
+          test:/(\.js|.jsx)$/,
           //o busque dentro de client
           include: path.join(__dirname, '/client/src'),
           loader: 'babel-loader',
           //babel
           query:{
             //react a es2015
-             presets: ['es2015', 'stage-2', 'react','es2017'],
-             plugins: ['babel-plugin-transform-decorators-legacy'],
+             presets: [['es2015',{"modules":false}], 'stage-2', 'react','es2017','stage-0','stage-3'],
+             plugins: ['babel-plugin-transform-decorators-legacy',"transform-es2015-destructuring", ["transform-object-rest-spread",{"useBuiltIns":true}]],
           }
       },
       {
@@ -33,7 +33,7 @@ module.exports ={
           {
             loader: 'babel-loader',
             query: {
-              presets: ['es2015']
+              presets: ['es2015','react',"stage-2"]
             }
           },
           {
@@ -41,9 +41,12 @@ module.exports ={
             query: {
               jsx: true
             }
-          }
+          },
+
+
        ]
-     }],
+     },
+    ],
   },
 
   watch:true

@@ -6,7 +6,8 @@ export default function reducer(state={
       case "HANDLE_TAP_HOME": {
         return {...state, open: action.open}
       }
+      default:{
+      return state
+      }
     }
-
-    return state
 }
