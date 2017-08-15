@@ -1,3 +1,4 @@
+const webpack =require('webpack')
 const path = require('path');
 
 module.exports ={
@@ -10,44 +11,63 @@ module.exports ={
     // con que nombre
     filename:'app.js',
   },
+  resolve:{
+    modules:['node_modules','./client'],
+    extensions:['.js','.json','.jsx'],
+    descriptionFiles:['package.json'],
+  },
   module : {
-
-
-    loaders:[
-        {
-        //lea todo lo que sea jsx
+    rules:[
+      {
           test:/(\.js|.jsx)$/,
           //o busque dentro de client
           include: path.join(__dirname, '/client/src'),
           loader: 'babel-loader',
-          //babel
-          query:{
-            //react a es2015
-             presets: [['es2015',{"modules":false}], 'stage-2', 'react','es2017','stage-0','stage-3'],
-             plugins: ['babel-plugin-transform-decorators-legacy',"transform-es2015-destructuring", ["transform-object-rest-spread",{"useBuiltIns":true}]],
-          }
+          exclude:/(node_modules)/,      
+            options:{
+              presets: [['es2015',{"modules":false}], 'stage-2', 'react','es2017','stage-3'],
+              plugins:[
+                "transform-decorators-legacy",
+                "transform-es2015-destructuring",
+              ],
+            },
+          
+  
       },
       {
-        test: /\.svg$/,
-        loaders: [
-          {
-            loader: 'babel-loader',
-            query: {
-              presets: ['es2015','react',"stage-2"]
-            }
-          },
-          {
-            loader: 'react-svg-loader',
-            query: {
+          test: /\.svg$/,
+          loader: 'react-svg-loader',
+          query: {
               jsx: true
-            }
-          },
-
-
-       ]
-     },
+            }  
+      }
     ],
   },
+   plugins: 
+
+        process.env.NODE_ENV ? [
+          
+          new webpack.DefinePlugin({
+            'process.env': {
+              NODE_ENV: JSON.stringify('production'),
+            },
+          }),
+          new webpack.optimize.OccurrenceOrderPlugin(),
+          // > Minimize JS
+          new webpack.optimize.UglifyJsPlugin({
+            sourceMap: false,
+            mangle: false,
+          }),
+        ]:[
+          new webpack.DefinePlugin({
+            'process.env': {
+              NODE_ENV: JSON.stringify(false),
+            },
+          }),
+        ],
+  cache:false,
+       
 
   watch:true
-};
+};  
+
