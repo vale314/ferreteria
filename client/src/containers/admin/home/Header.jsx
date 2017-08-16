@@ -1,9 +1,16 @@
 import React from 'react';
 import Base from '../../../componets/admin/home/Header.jsx'
+import {connect} from 'react-redux'
+
+@connect((store)=>{
+  return{
+    adminLenguage:store.adminSettings.adminLenguage
+  }
+})
+
 class Adm extends React.Component {
   constructor(props){
-    super(props)
-
+    super(props)    
   }
 
 
@@ -11,7 +18,10 @@ class Adm extends React.Component {
 
   render() {
     return(
-        <Base />
+        <Base
+             adminLenguage={this.props.adminLenguage}
+         />
+
           );
   }
 

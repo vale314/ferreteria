@@ -18,7 +18,8 @@ import {AJAX} from './actions/Ajax'
 @connect((store)=>{
   return{
     open:store.adminBase.open,
-    device:store.device.isMobile
+    device:store.device.isMobile,
+    adminLenguage:store.adminSettings.adminLenguage
   }
 })
 
@@ -27,7 +28,7 @@ class Base extends React.Component {
     super(props)
     this.handleTap = this.handleTap.bind(this);
     this.handleClick = this.handleClick.bind(this);
-
+    
 
 
   }
@@ -55,6 +56,7 @@ class Base extends React.Component {
               handleTap={this.handleTap}
               open={this.props.open}
               handleClick={this.handleClick}
+              adminLenguage={this.props.adminLenguage}              
                />);
 
   }

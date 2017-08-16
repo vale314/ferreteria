@@ -14,6 +14,7 @@ import {RELOAD} from './actions'
   }
 })
 
+
 class Base extends React.Component {
   constructor(props){
     super(props)

@@ -6,7 +6,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 
 
-const CardExampleExpandable = () => (
+const CardExampleExpandable = ({adminLenguage}) => (
   <div>
         <Header as='h2' textAlign='center'>
             Cuentas

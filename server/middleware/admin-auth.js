@@ -27,7 +27,6 @@ module.exports = (req, res, next) => {
     // cheacmos si existe el usuario en el schema  lo buscamos pos su id  le mandamos el userId donde tenemos el unicoId
     //si hay un error madamos un errro
     //si se encuentra el user se manada en user
-    console.log(userId)
     return Admin.findById(userId, (userErr, user) => {
       if (userErr || !user) {
         //si hay un error o no se encontro en user

@@ -14,7 +14,11 @@ import {connect} from 'react-redux'
 import store from '../../../redux/store'
 
 
-@connect()
+@connect((store)=>{
+  return{
+    adminLenguage:store.adminSettings.adminLenguage
+  }
+})
 
 class Base extends React.Component {
   constructor(props){
@@ -32,6 +36,7 @@ class Base extends React.Component {
   render() {
     return (<SignOutCompo
               handleHomeClick={this.handleHomeClick}
+              adminLenguage={this.props.adminLenguage}              
              />);
   }
 
