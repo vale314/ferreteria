@@ -49,5 +49,5 @@ Temporary Items
 # Dependency directories
 node_modules/
 jspm_packages/
-client/dist/js/app.js
+./client/dist/js/app.js
 
