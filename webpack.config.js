@@ -25,7 +25,7 @@ module.exports ={
           loader: 'babel-loader',
           exclude:/(node_modules)/,      
             options:{
-              presets: [['es2015',{"modules":false}], 'stage-2', 'react','es2017','stage-3'],
+              presets: ['es2015', 'stage-2', 'react','es2017','stage-3'],
               plugins:[
                 "transform-decorators-legacy",
                 "transform-es2015-destructuring",
@@ -70,4 +70,3 @@ module.exports ={
 
   watch:true
 };  
-
