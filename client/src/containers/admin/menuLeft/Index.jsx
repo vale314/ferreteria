@@ -3,8 +3,8 @@ import React from 'react';
 import { connect } from "react-redux"
 
 //componets
-import Menu from '../../../componets/admin/menu/Index.jsx'
-
+import MenuPc from '../../../componets/admin/menu/pc/Index.jsx'
+import MenuPhone from '../../../componets/admin/menu/phone/Index.jsx'
 //actions
 import {HANDLE_TAP_HOME} from './actions/Open'
 import {ROUTE} from './actions/Route'
@@ -19,7 +19,7 @@ import {AJAX} from './actions/Ajax'
   return{
     open:store.adminBase.open,
     device:store.device.isMobile,
-    adminLenguage:store.adminSettings.adminLenguage
+    adminLenguageBoolean:store.adminSettings.adminLenguageBoolean
   }
 })
 
@@ -51,16 +51,29 @@ class Base extends React.Component {
   }
 
   render() {
-
-      return (<Menu
-              handleTap={this.handleTap}
-              open={this.props.open}
-              handleClick={this.handleClick}
-              adminLenguage={this.props.adminLenguage}              
-               />);
-
+    let {device,adminLenguageBoolean} = this.props
+    adminLenguageBoolean = Boolean(adminLenguageBoolean)
+    if(device == 'true'){
+      return(
+      <MenuPc
+         handleTap={this.handleTap}
+         open={this.props.open}
+         handleClick={this.handleClick}
+         adminLenguageBoolean={this.props.adminLenguageBoolean}   
+          
+      />)
+    }else{
+      return(
+      <MenuPhone
+        handleTap={this.handleTap}
+        open={this.props.open}
+        handleClick={this.handleClick}
+        adminLenguageBoolean={this.props.adminLenguageBoolean}   
+          
+      />)
+    }
   }
-
+  
 }
 
 export default Base;

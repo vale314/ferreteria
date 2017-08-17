@@ -1,10 +1,11 @@
 import React from 'react';
-import Base from '../../../componets/admin/home/Header.jsx'
+import BasePc from '../../../componets/admin/home/pc/Header.jsx'
+import BasePhone from '../../../componets/admin/home/phone/Header.jsx'
 import {connect} from 'react-redux'
 
 @connect((store)=>{
   return{
-    adminLenguage:store.adminSettings.adminLenguage
+    adminLenguageBoolean:store.adminSettings.adminLenguageBoolean
   }
 })
 
@@ -17,14 +18,24 @@ class Adm extends React.Component {
 
 
   render() {
-    return(
-        <Base
-             adminLenguage={this.props.adminLenguage}
-         />
-
-          );
+      let {device,adminLenguageBoolean} = this.props
+      adminLenguageBoolean = Boolean(adminLenguageBoolean)
+      if(device == 'true'){
+        return(
+        <BasePc
+            adminLenguageBoolean={this.props.adminLenguageBoolean}
+            
+        />)
+      }else{
+        return(
+        <BasePhone
+            adminLenguageBoolean={this.props.adminLenguageBoolean}
+            
+        />)
+      }
+    
   }
-
+  
 }
 
 export default Adm;

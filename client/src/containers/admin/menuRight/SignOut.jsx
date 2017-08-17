@@ -2,8 +2,8 @@
 import React from 'react';
 
 //componets
-import SignOutCompo from '../../../componets/admin/menuRight/SignOut.jsx'
-
+import SignOutCompoPc from '../../../componets/admin/menuRight/pc/SignOut.jsx'
+import SignOutCompoPhone from '../../../componets/admin/menuRight/phone/SignOut.jsx'
 //actions
 import {REMOVE_TOKEN} from './function'
 
@@ -16,7 +16,7 @@ import store from '../../../redux/store'
 
 @connect((store)=>{
   return{
-    adminLenguage:store.adminSettings.adminLenguage
+    adminLenguageBoolean:store.adminSettings.adminLenguageBoolean
   }
 })
 
@@ -34,12 +34,24 @@ class Base extends React.Component {
   }
 
   render() {
-    return (<SignOutCompo
-              handleHomeClick={this.handleHomeClick}
-              adminLenguage={this.props.adminLenguage}              
-             />);
+    let {device,adminLenguageBoolean} = this.props
+    adminLenguageBoolean = Boolean(adminLenguageBoolean)
+    if(device == 'true'){
+      return(
+      <SignOutCompoPhone
+        handleHomeClick={this.handleHomeClick}
+        adminLenguageBoolean={this.props.adminLenguageBoolean}   
+          
+      />)
+    }else{
+      return(
+      <SignOutCompoPc
+        handleHomeClick={this.handleHomeClick}
+        adminLenguageBoolean={this.props.adminLenguageBoolean}   
+          
+      />)
+    }
   }
-
 }
 
 export default Base;

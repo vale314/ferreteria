@@ -1,10 +1,13 @@
 import React from 'react';
-import CuentasCompo from '../../../../componets/admin/administracion/cuentas/Header.jsx'
+import CuentasCompoPc from '../../../../componets/admin/administracion/cuentas/pc/Header.jsx'
+import CuentasCompoPhone from '../../../../componets/admin/administracion/cuentas/phone/Header.jsx'
+
 import {connect} from 'react-redux'
 
 @connect((store)=>{
   return{
-    adminLenguage:store.adminSettings.adminLenguage
+    adminLenguageBoolean:store.adminSettings.adminLenguageBoolean,
+    device:store.device.isMobile
   }
 })
 
@@ -16,9 +19,23 @@ class Cuentas extends React.Component {
 
 
   render() {
-    return (<CuentasCompo
-              adminLenguage={this.props.adminLenguage}
-             />);
+    let {device,adminLenguageBoolean} = this.props
+    adminLenguageBoolean = Boolean(adminLenguageBoolean)
+    if(device == 'true'){
+      return(
+       <CuentasCompoPhone
+          adminLenguageBoolean={this.props.adminLenguageBoolean}
+          lenguageM={'phone'}
+       />)
+    }else{
+      return(
+       <CuentasCompoPc
+          adminLenguageBoolean={this.props.adminLenguageBoolean}
+          lenguageM={'pc'}
+       />)
+    }
+    
+    
   }
 
 }

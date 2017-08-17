@@ -6,10 +6,10 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 
 
-const CardExampleExpandable = ({adminLenguage}) => (
+const CardExampleExpandable = ({adminLenguageBoolean,lenguageM}) => (
   <div>
         <Header as='h2' textAlign='center'>
-            Cuentas
+          {adminLenguageBoolean ? 'Cuentas' : 'Accounts'}
         </Header>
   </div>
 );

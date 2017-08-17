@@ -1,10 +1,13 @@
 import React from 'react';
-import SettingsCompo from '../../../../componets/admin/config/settings/Header.jsx'
+import SettingsCompoPc from '../../../../componets/admin/config/settings/pc/Header.jsx'
+import SettingsCompoPhone from '../../../../componets/admin/config/settings/phone/Header.jsx'
+
 import {connect} from 'react-redux'
 
 @connect((store)=>{
   return{
-    adminLenguage:store.adminSettings.adminLenguage
+    adminLenguageBoolean:store.adminSettings.adminLenguageBoolean,
+    device:store.device.isMobile
   }
 })
 
@@ -19,11 +22,21 @@ class SettingsHeader extends React.Component {
 
 
   render() {
-    return(
-        <SettingsCompo
-          adminLenguage={this.props.adminLenguage}
-         />
-          );
+    let {device,adminLenguageBoolean} = this.props
+    adminLenguageBoolean = Boolean(adminLenguageBoolean)
+    if(device == 'true'){
+      return(
+       <SettingsCompoPhone
+          adminLenguageBoolean={this.props.adminLenguageBoolean}
+       />)
+    }else{
+      return(
+       <SettingsCompoPc
+          adminLenguageBoolean={this.props.adminLenguageBoolean}
+       />)
+    }
+    
+    
   }
 
 }

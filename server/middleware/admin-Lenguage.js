@@ -1,5 +1,6 @@
 //funciones
 const adminLenguage = require('../dev/handlebars/adminLenguage')
+
 const redis = require('redis');
 const client = redis.createClient();
 
@@ -9,7 +10,7 @@ module.exports = (req, res, next) => {
       if(err)
          res.locals.adminLenguage = adminLenguage.adminLenguage('EN')
        res.locals.adminLenguage = adminLenguage.adminLenguage(homePage.adminLenguage)
-    
+       res.locals.adminLenguageBoolean = adminLenguage.adminLenguageBoolean(homePage.adminLenguage)
     return next();
     })
 
