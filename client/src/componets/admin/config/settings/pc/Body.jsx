@@ -4,26 +4,17 @@ import FlatButton from 'material-ui/FlatButton';
 import { Container, Divider, Header } from 'semantic-ui-react'
 
 
-import BodyEs from './en/Language.jsx'
-import BodyEn from './es/Lenguage.jsx'
+import Language from './others/Language.jsx'
 
 
 const CardExampleExpandable = ({adminLenguage,handleClick,handleClickSaves,adminLenguageBoolean}) => (
   <div>
-    {adminLenguageBoolean ? 'Cuentas' : 'Accounts'}
-    {
-      adminLenguageBoolean ? 
-        <BodyEs handleClick={handleClick}
-        handleClickSaves={handleClickSaves}
-        adminLenguage={adminLenguage}/>
-        :
-        <BodyEn handleClick={handleClick}
-        handleClickSaves={handleClickSaves}
-        adminLenguage={adminLenguage}/>
-    }
-    
-    
-
+    <Language 
+      adminLenguage={adminLenguage}
+      handleClick={handleClick}
+      handleClickSaves={handleClickSaves}
+      adminLenguageBoolean={adminLenguageBoolean}
+    />
    </div> 
 );
 

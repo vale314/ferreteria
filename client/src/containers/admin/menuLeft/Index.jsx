@@ -53,9 +53,10 @@ class Base extends React.Component {
   render() {
     let {device,adminLenguageBoolean} = this.props
     adminLenguageBoolean = Boolean(adminLenguageBoolean)
+    console.log(device == 'true')
     if(device == 'true'){
       return(
-      <MenuPc
+      <MenuPhone
          handleTap={this.handleTap}
          open={this.props.open}
          handleClick={this.handleClick}
@@ -64,7 +65,7 @@ class Base extends React.Component {
       />)
     }else{
       return(
-      <MenuPhone
+      <MenuPc
         handleTap={this.handleTap}
         open={this.props.open}
         handleClick={this.handleClick}

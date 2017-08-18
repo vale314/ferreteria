@@ -4,10 +4,10 @@ import { Header} from 'semantic-ui-react'
 
 
 
-const CardExampleExpandable = () => (
+const CardExampleExpandable = ({adminLenguageBoolean}) => (
   <div>
         <Header as='h2' textAlign='center'>
-            Settings
+            {adminLenguageBoolean ? 'Sistema' : "Settings"}
         </Header>
   </div>
 );

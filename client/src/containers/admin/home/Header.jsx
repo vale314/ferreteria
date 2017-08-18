@@ -5,7 +5,9 @@ import {connect} from 'react-redux'
 
 @connect((store)=>{
   return{
-    adminLenguageBoolean:store.adminSettings.adminLenguageBoolean
+    device:store.device.isMobile,
+
+    adminLenguageBoolean:store.adminSettings.adminLenguageBoolean,
   }
 })
 

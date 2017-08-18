@@ -4,12 +4,14 @@ import FlatButton from 'material-ui/FlatButton';
 import { Container, Divider, Header } from 'semantic-ui-react'
 
 
-const CardExampleExpandable = ({adminLenguage,handleClick,handleClickSaves}) => (
+
+
+const CardExampleExpandable = ({adminLenguage,handleClick,handleClickSaves,adminLenguageBoolean}) => (
   <div>
     <Container textAlign='left'>
       <Card  style={{height:'0px'}}>
               <Header as="h3">
-                  Lenguage
+                 {adminLenguageBoolean ? 'Lenguage' : "Language"}
               </Header>
                       <FlatButton label="ES"
                       onTouchTap={()=>handleClick('ES')}
@@ -22,7 +24,7 @@ const CardExampleExpandable = ({adminLenguage,handleClick,handleClickSaves}) => 
                       onTouchTap={()=>handleClickSaves()}
                               />
               <Header as="h3">
-                  Lenguage
+                {adminLenguageBoolean ? 'Lenguage' : "Language"}
               </Header>               
         
       </Card>
@@ -30,7 +32,7 @@ const CardExampleExpandable = ({adminLenguage,handleClick,handleClickSaves}) => 
     <Container textAlign='right'>
       <Card  style={{height:'0px'}}>
                <Header as="h3">
-                    Lenguage
+                  {adminLenguageBoolean ? 'Lenguage' : "Language"}
                 </Header>
                       <FlatButton label="ES"
                       onTouchTap={()=>handleClick('ES')}
@@ -43,7 +45,7 @@ const CardExampleExpandable = ({adminLenguage,handleClick,handleClickSaves}) => 
                       onTouchTap={()=>handleClickSaves()}
                               />
                <Header as="h3">
-                  Lenguage
+                  {adminLenguageBoolean ? 'Lenguage' : "Language"}
               </Header>             
         
       </Card>

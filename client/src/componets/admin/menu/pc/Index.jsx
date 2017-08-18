@@ -12,8 +12,9 @@ import List from 'material-ui/List/List';
 import ListItem from 'material-ui/List/ListItem';
 
 
-const Menu = ({handleTap,open,handleClick}) => (
+const Menu = ({handleTap,open,handleClick,adminLenguageBoolean}) => (
   <div style={{float:'left'}}>
+    
       <i onMouseOver={handleTap} className="material-icons">home</i>
         <Drawer open={open} >
         <List>
@@ -26,10 +27,10 @@ const Menu = ({handleTap,open,handleClick}) => (
               Image Avatar
             </ListItem>
           </List>
-            <MenuItem onClick={()=>handleClick('/')}>Home</MenuItem>
-            <MenuItem onClick={()=>handleClick('/adm/cuentas')}>Cuentas</MenuItem>
+            <MenuItem onClick={()=>handleClick('/')}>{adminLenguageBoolean ? 'Inicio': 'Home'}</MenuItem>
+            <MenuItem onClick={()=>handleClick('/adm/cuentas')}>{adminLenguageBoolean ? 'Cuentas' : 'Accounts' }</MenuItem>
             <RaisedButton
-            label="Close Drawer"
+            label={adminLenguageBoolean ? 'Cerrar': 'Close Drawer'}
             onTouchTap={handleTap}
             />
         </Drawer>
