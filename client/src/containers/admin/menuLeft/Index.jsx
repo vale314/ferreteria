@@ -53,7 +53,7 @@ class Base extends React.Component {
   render() {
     let {device,adminLenguageBoolean} = this.props
     adminLenguageBoolean = Boolean(adminLenguageBoolean)
-    console.log(device == 'true')
+
     if(device == 'true'){
       return(
       <MenuPhone

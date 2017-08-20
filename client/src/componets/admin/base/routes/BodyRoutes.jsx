@@ -2,13 +2,14 @@ import React from 'react';
 
 
 import Settings from '../../../../containers/admin/config/settings/Body.jsx'
-
+import SettingsEmail from '../../../../containers/admin/config/settings/components/Email.jsx'
 import { Switch, Route, Miss} from 'react-router-dom'
 
 const CardExampleExpandable = () => (
   <div>
     <Switch>
-      <Route path='/adm/settings' component={Settings} />
+      <Route exact path='/adm/settings' component={Settings} />
+      <Route path='/adm/settings/email' component={SettingsEmail} />
     </Switch>
   </div>
 

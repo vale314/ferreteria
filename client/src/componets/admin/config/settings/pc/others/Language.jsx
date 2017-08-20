@@ -8,6 +8,7 @@ import { Container, Divider, Header } from 'semantic-ui-react'
 
 const CardExampleExpandable = ({adminLenguage,handleClick,handleClickSaves,adminLenguageBoolean}) => (
   <div>
+    <Divider horizontal hidden></Divider> 
     <Container textAlign='left'>
       <Card  style={{height:'0px'}}>
               <Header as="h3">
