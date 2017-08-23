@@ -14,7 +14,6 @@ import ListItem from 'material-ui/List/ListItem';
 
 const Menu = ({handleTap,open,handleClick,adminLenguageBoolean}) => (
   <div style={{float:'left'}}>
-    
       <i onMouseOver={handleTap} className="material-icons">home</i>
         <Drawer open={open} >
         <List>

@@ -29,6 +29,9 @@ class EmailBodyChange extends React.Component {
         
     }
 
+    componentWillMount(){
+       
+    }
 
     render(){
         return(

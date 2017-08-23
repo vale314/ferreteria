@@ -16,6 +16,7 @@ const CardExampleExpandable = () => (
     <Route exact path='/' component={Routes} />
     <Route path='/adm/cuentas' component={Cuentas} />
     <Route path='/adm/settings' component={Settings} />
+
     <Route component={noMatch} />
   </Switch>
   </div>
