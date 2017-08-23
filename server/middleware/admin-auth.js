@@ -34,7 +34,8 @@ module.exports = (req, res, next) => {
         return res.status(401).end();
         //se manda status
       }
-
+      
+      res.locals.email = user.email
       return next();
       //retornamos el siguienete middleware
     });

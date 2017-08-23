@@ -3,6 +3,8 @@ const router = new express.Router();
 const path = require('path');
 const redis = require('redis');
 const client = redis.createClient();
+const Admin = require('mongoose').model('Admins')
+const email = require('../../functions/admin/settings/email.js')
 
 router.post('/settings/save', (req,res)=>{
   const body = req.body;
@@ -19,6 +21,12 @@ router.get('/',(req,res)=>{
           });
 })
 
+router.post('/settings/email',(req,res)=>{
+  email.changeEmail(res.locals.email,req.body).then((res)=>{
+     console.log(res)
+  })
+  res.status(200).end()
+})
 
 
 module.exports = router;

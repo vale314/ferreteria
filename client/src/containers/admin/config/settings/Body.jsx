@@ -44,7 +44,7 @@ class SettingsBody extends React.Component {
             adminLenguage={this.props.adminLenguage}
             handleClickSaves={this.handleClickSaves}
             adminLenguageBoolean={this.props.adminLenguageBoolean}
-            
+            device={device}
         />)
       }else{
         return(

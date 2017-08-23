@@ -1,6 +1,6 @@
 import React from 'react'
 import EmailCompo from '../../../../../componets/admin/config/settings/pc/others/Email.jsx'
-
+import * as email  from '../ajax/Email.jsx'
 class EmailBodyChange extends React.Component {
     constructor(props){
         super(props)
@@ -26,7 +26,9 @@ class EmailBodyChange extends React.Component {
 
     onSubmit(event){
         event.preventDefault();
-        
+        email.post(this.state.user).then((state)=>{
+            console.log(state)
+        })
     }
 
     componentWillMount(){

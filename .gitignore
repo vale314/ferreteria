@@ -55,3 +55,4 @@ jspm_packages/
 
 client/dist/js/app.js
 client/src/redux/reducer/index.js
+client/dist/js/app.js
