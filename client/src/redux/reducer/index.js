@@ -13,5 +13,4 @@ export default combineReducers({
     adminSettings: adminSettings,
     device: device,
     personLenguage:personLenguage,
-
 })

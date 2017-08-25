@@ -1,6 +1,17 @@
 import React from 'react'
+import {connect} from 'react-redux'
+
 import EmailCompo from '../../../../../componets/admin/config/settings/pc/others/Email.jsx'
 import * as email  from '../ajax/Email.jsx'
+import {routes}  from '../functions'
+
+@connect((store)=>{
+    return{
+        adminLenguageBoolean:store.adminSettings.adminLenguageBoolean
+
+    }
+})
+
 class EmailBodyChange extends React.Component {
     constructor(props){
         super(props)
@@ -13,6 +24,7 @@ class EmailBodyChange extends React.Component {
         }
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+        this.handleClickRoutes = this.handleClickRoutes.bind(this)
     }
 
     onChange(e){
@@ -35,9 +47,22 @@ class EmailBodyChange extends React.Component {
        
     }
 
+    handleClickRoutes(e){
+        e.preventDefault();
+        routes(e.target.id,this.props.history.push,this.props.match.url)
+    }
+
     render(){
+        const {adminLenguageBoolean} = this.props
         return(
-        <EmailCompo onChange={this.onChange} user={this.state.user} onSubmit={this.onSubmit}/>
+        <EmailCompo 
+            onChange={this.onChange} 
+            user={this.state.user} 
+            onSubmit={this.onSubmit}
+            handleClickRoutes={this.handleClickRoutes}
+            adminLenguageBoolean={adminLenguageBoolean}
+            />
+            
         )
     }
 }

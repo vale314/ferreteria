@@ -1,8 +1,8 @@
 import React from 'react'
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-
-const Email=({onSubmit,onChange,errors,user})=>(
+import {Button} from 'semantic-ui-react'
+const Email=({onSubmit,onChange,errors,user,handleClickRoutes,adminLenguageBoolean})=>(
     <div>
       <form onSubmit={onSubmit}>
       <div className='Field'>
@@ -29,7 +29,9 @@ const Email=({onSubmit,onChange,errors,user})=>(
             />
         </div>
         <div className='Button'>
-            <RaisedButton type='submit' label='Change' primary/>
+            {console.log(adminLenguageBoolean)}
+            <Button id='BACK' onClick={handleClickRoutes} content={adminLenguageBoolean ? 'Volver': 'Back'} />
+            <RaisedButton type='submit' label={adminLenguageBoolean ? 'Cambiar': 'Change'} primary/>
         </div>    
       </form>  
     </div>  

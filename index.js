@@ -43,8 +43,8 @@ const localLoginStrategy = require('./server/passport/login/login')
 
 passport.use('local-login',localLoginStrategy);
 
-const authCheckMiddlewareAdmin = require('./server/middleware/admin-auth.js')
-app.use('/admin',authCheckMiddlewareAdmin)
+//const authCheckMiddlewareAdmin = require('./server/middleware/admin-auth.js')
+//app.use('/admin',authCheckMiddlewareAdmin)
 
 const phoneCheckMiddleware = require('./server/middleware/phone-Check.js')
 app.use('*',phoneCheckMiddleware)

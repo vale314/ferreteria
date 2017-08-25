@@ -5,6 +5,7 @@ import SettingsCompoPhone from '../../../../componets/admin/config/settings/phon
 import {LENGUAGES} from '../actions/Lenguage'
 import {SAVES} from '../actions/Saves'
 import {connect} from 'react-redux'
+import {routes} from './functions'
 
 @connect((store)=>{
   return{
@@ -19,6 +20,7 @@ class SettingsBody extends React.Component {
     super(props)
     this.handleClick = this.handleClick.bind(this)
     this.handleClickSaves = this.handleClickSaves.bind(this)
+    this.handleClickRoutes = this.handleClickRoutes.bind(this)
   }
 
   handleClick(event){
@@ -32,6 +34,10 @@ class SettingsBody extends React.Component {
             return window.location.reload();
         return(0)
     })
+  }
+
+  handleClickRoutes(e){
+    routes(e.target.id,this.props.history.push,this.props.match.url)
   }
   
   render() {
@@ -53,6 +59,7 @@ class SettingsBody extends React.Component {
             adminLenguage={this.props.adminLenguage}
             handleClickSaves={this.handleClickSaves}
             adminLenguageBoolean={this.props.adminLenguageBoolean}
+            handleClickRoutes={this.handleClickRoutes}
             
         />)
       }
