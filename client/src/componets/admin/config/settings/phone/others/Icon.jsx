@@ -4,10 +4,10 @@ import * as Semantic from 'semantic-ui-react'
 
 
 
-const CardExampleExpandable = ({adminLenguageBoolean}) => (
+const CardExampleExpandable = ({adminLenguageBoolean, handleClickRoutes}) => (
   <div>
-         <Semantic.Card centered fluid>
-            <Image src='https://pbs.twimg.com/profile_images/425000350202867713/omeMN2VM.jpeg' style={{marginLeft:'10%', marginRight:'10%'}}/>
+         <Semantic.Card centered style={{ paddingRight:'0px'}}>
+            <Image src='https://pbs.twimg.com/profile_images/425000350202867713/omeMN2VM.jpeg' style={{marginLeft:'0%', marginRight:'0%'}}/>
             <Semantic.Card.Content>
               <Semantic.Card.Header>
                 Valentina
@@ -22,8 +22,8 @@ const CardExampleExpandable = ({adminLenguageBoolean}) => (
               </Semantic.Card.Description>
             </Semantic.Card.Content>
             <Semantic.Card.Content extra>
-              <a>
-                <Icon name='user' />
+              <a id='PROFILE' onClick={handleClickRoutes}>
+                <Icon name='user' onClick={handleClickRoutes}  />
                 {adminLenguageBoolean ? 'Editar': 'Edit'}
               </a>
             </Semantic.Card.Content>

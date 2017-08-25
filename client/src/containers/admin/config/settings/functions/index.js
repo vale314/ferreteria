@@ -3,9 +3,12 @@ export const routes=(routes,location,get)=>{
        case 'EMAIL':
             location(`${get}/email`)
            break;
+       case 'PROFILE':
+            location(`${get}/profile`)
+           break;       
        case 'BACK':
             location('/adm/settings')
-            break; 
+           break; 
        default:
            break;
    } 

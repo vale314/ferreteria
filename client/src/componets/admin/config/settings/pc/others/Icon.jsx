@@ -4,7 +4,7 @@ import * as Semantic from 'semantic-ui-react'
 
 
 
-const CardExampleExpandable = ({adminLenguageBoolean}) => (
+const CardExampleExpandable = ({adminLenguageBoolean, handleClickRoutes}) => (
   <div>
         <div style={{textAlign:'center' , backgroundImage: 'https://static.pexels.com/photos/215/road-sky-clouds-cloudy.jpg', marginLeft:'100px', marginRight:'100px'}}>
          <Semantic.Card centered >
@@ -23,7 +23,7 @@ const CardExampleExpandable = ({adminLenguageBoolean}) => (
               </Semantic.Card.Description>
             </Semantic.Card.Content>
             <Semantic.Card.Content extra>
-              <a>
+              <a id='PROFILE' onClick={handleClickRoutes}>
                 <Icon name='user' />
                 {adminLenguageBoolean ? 'Editar': 'Edit'}
               </a>

@@ -8,7 +8,7 @@ import IconImage from './others/Icon.jsx'
 
 const CardExampleExpandable = ({adminLenguage,handleClick,handleClickSaves,adminLenguageBoolean,handleClickRoutes}) => (
   <div>
-        <IconImage adminLenguageBoolean={adminLenguageBoolean}/>
+        <IconImage adminLenguageBoolean={adminLenguageBoolean} handleClickRoutes={handleClickRoutes}/>
         <Lenguage 
         handleClick={handleClick}
         handleClickSaves={handleClickSaves}
