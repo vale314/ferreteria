@@ -5,11 +5,14 @@ import { Container, Divider, Header } from 'semantic-ui-react'
 
 
 import Lenguage from './others/Lenguages.jsx'
+import IconImage from './others/Icon.jsx'
 
 
 
-const CardExampleExpandable = ({adminLenguage,handleClick,handleClickSaves, adminLenguageBoolean,device}) => (
+const CardExampleExpandable = ({adminLenguage,handleClick,handleClickSaves, adminLenguageBoolean}) => (
   <div>
+      <IconImage adminLenguageBoolean={adminLenguageBoolean}/>
+      <Divider />
       <Lenguage 
         handleClick={handleClick}
         handleClickSaves={handleClickSaves}

@@ -29,7 +29,6 @@ const Email=({onSubmit,onChange,errors,user,handleClickRoutes,adminLenguageBoole
             />
         </div>
         <div className='Button'>
-            {console.log(adminLenguageBoolean)}
             <Button id='BACK' onClick={handleClickRoutes} content={adminLenguageBoolean ? 'Volver': 'Back'} />
             <RaisedButton type='submit' label={adminLenguageBoolean ? 'Cambiar': 'Change'} primary/>
         </div>    

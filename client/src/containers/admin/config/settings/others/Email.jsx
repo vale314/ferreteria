@@ -1,14 +1,16 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import EmailCompo from '../../../../../componets/admin/config/settings/pc/others/Email.jsx'
+import EmailCompoPc from '../../../../../componets/admin/config/settings/pc/others/Email.jsx'
+import EmailCompoPhone from '../../../../../componets/admin/config/settings/phone/others/Email.jsx'
+
 import * as email  from '../ajax/Email.jsx'
 import {routes}  from '../functions'
 
 @connect((store)=>{
     return{
-        adminLenguageBoolean:store.adminSettings.adminLenguageBoolean
-
+        adminLenguageBoolean:store.adminSettings.adminLenguageBoolean,
+        device:store.device.isMobile
     }
 })
 
@@ -53,17 +55,30 @@ class EmailBodyChange extends React.Component {
     }
 
     render(){
-        const {adminLenguageBoolean} = this.props
-        return(
-        <EmailCompo 
-            onChange={this.onChange} 
-            user={this.state.user} 
-            onSubmit={this.onSubmit}
-            handleClickRoutes={this.handleClickRoutes}
-            adminLenguageBoolean={adminLenguageBoolean}
-            />
-            
-        )
+        const {adminLenguageBoolean,device} = this.props
+        if(device == 'true'){
+            return(
+                <EmailCompoPhone
+                    onChange={this.onChange} 
+                    user={this.state.user} 
+                    onSubmit={this.onSubmit}
+                    handleClickRoutes={this.handleClickRoutes}
+                    adminLenguageBoolean={adminLenguageBoolean}
+                    />
+            )        
+
+        }else{
+            return(
+                <EmailCompoPc
+                    onChange={this.onChange} 
+                    user={this.state.user} 
+                    onSubmit={this.onSubmit}
+                    handleClickRoutes={this.handleClickRoutes}
+                    adminLenguageBoolean={adminLenguageBoolean}
+                    />
+            )    
+    }
+        
     }
 }
 

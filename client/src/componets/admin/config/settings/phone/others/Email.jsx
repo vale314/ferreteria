@@ -1,40 +1,23 @@
 import React from 'react'
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import {Button} from 'semantic-ui-react'
+import EmailPc from '../../pc/others/Email.jsx'
 
-const Email=({onSubmit,onChange,errors,user})=>(
+const EmailPhone=({onSubmit,onChange,errors,user,handleClickRoutes,adminLenguageBoolean})=>(
+    
     <div>
-      <form onSubmit={onSubmit}>
-      <div className='Field'>
-            <TextField
-                style={{paddingTop:'3px'}}
-                floatingLabelText="Email"
-                name="email"
-                onChange={onChange}
-                className='Field'
-                required
-                type="email"
-                value={user.email}
-            />
-        </div>
-        <div className='Field'>
-            <TextField
-                style={{paddingTop:'3px'}}
-                floatingLabelText="Password"
-                name="password"
-                onChange={onChange}
-                className='Field'
-                required
-                value={user.password}
-            />
-        </div>
-        <div className='Button'>
-            <RaisedButton type='submit' label='Change' primary/>
-        </div>    
-      </form>  
+        <EmailPc 
+            onSubmit={onSubmit}
+            onChange={onChange}
+            errors={errors}
+            user={user}
+            handleClickRoutes={handleClickRoutes}
+            adminLenguageBoolean={adminLenguageBoolean}
+        />
     </div>  
 )
  
 
 
-export default Email;
+export default EmailPhone;
