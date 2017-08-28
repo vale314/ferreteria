@@ -2,7 +2,7 @@ import React from 'react'
 import { Form } from 'semantic-ui-react'
 import {Button} from 'semantic-ui-react'
 import RaisedButton from 'material-ui/RaisedButton'
-import { Checkbox, Label } from 'semantic-ui-react'
+import { Checkbox, Label, Message } from 'semantic-ui-react'
 
 const ProfilePc = ({onChange,user,onSubmit,adminLenguageBoolean,handleClickRoutes,onClickCheck}) =>(
     <div style={{marginTop:'50px',marginLeft:'15%',marginRight:'15%'}}>
@@ -20,8 +20,12 @@ const ProfilePc = ({onChange,user,onSubmit,adminLenguageBoolean,handleClickRoute
             </Label>
         </Form.Group>
 
-            <Form.Input  control={'TextArea'} label={adminLenguageBoolean ? 'Description De La Compañia' : 'Description Of Company'} placeholder='.....' value={user.description} onChange={onChange} name='descriptionCompany' />
-
+            <Form.Input error control={'TextArea'} label={adminLenguageBoolean ? 'Description De La Compañia' : 'Description Of Company'} placeholder='.....' value={user.description} onChange={onChange} name='descriptionCompany' />
+        
+            <Message negative>
+            <Message.Header>We're sorry we can't apply that discount</Message.Header>
+            <p>That offer has expired</p>
+          </Message>
         <div className='Button' style={{marginBottom:'10%'}}>
             <Button id='BACK' onClick={handleClickRoutes} content={adminLenguageBoolean ? 'Volver': 'Back'} />
             <RaisedButton type='submit' label={adminLenguageBoolean ? 'Cambiar': 'Change'} primary/>
