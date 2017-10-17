@@ -21,6 +21,7 @@ class Home extends React.Component {
   }
 
   handleClick(event){
+    
     this.props.dispatch(LENGUAGES(event))
   }
   render() {

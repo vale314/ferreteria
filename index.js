@@ -11,7 +11,6 @@ const path = require('path')
 const config = require('./config/index.json');
 
 
-
 //initalize
 require('./server/base/mongoDb').connect(config.dbUri);
 require('./server/base/redis').connect();
@@ -33,9 +32,21 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
+
+process.env.NODE_ENV = process.env.NODE_ENV == `production `
+
+
+if(process.env.NODE_ENV == 'true'){
+  console.log('production in get')
+  app.get('*.js',(req,res,next)=>{
+    req.url = `${req.url}.gz`
+    res.set('Content-Encoding', 'gzip');  
+    next()
+  })
+}
+
 app.use(express.static('./server/dev/static/'));
 app.use(express.static('./client/dist/'));
-
 
 app.use(passport.initialize());
 

@@ -1,0 +1,9 @@
+#active{
+    display: block;
+    -webkit-transition: display 2s;
+}
+
+#desactive{
+    display: none;
+    -webkit-transition: display 2s;
+}

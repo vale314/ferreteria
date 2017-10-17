@@ -23,7 +23,7 @@ router.get('/',(req,res)=>{
 
 router.post('/settings/email',(req,res)=>{
   email.changeEmail(res.locals.email,req.body).then((res)=>{
-     console.log(res)
+     
   })
   res.status(200).end()
 })

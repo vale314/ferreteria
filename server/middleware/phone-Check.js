@@ -5,6 +5,7 @@ const isMobile = require('../dev/handlebars/mobile')
 module.exports = (req, res, next) => {
 
     res.locals.isMobile = isMobile.isMobile(req.headers['user-agent'])
+
     return next();
 
 };
