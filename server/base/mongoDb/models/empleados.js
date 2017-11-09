@@ -13,7 +13,8 @@ const EmpleadosSchema = new mongoose.Schema({
 
   password:{type:String, default:''},
   name:{type:String, default: ''},
-
+  date:{type:String, default:''},
+  active:{type:Boolean, default:'true'}
 });
 
 

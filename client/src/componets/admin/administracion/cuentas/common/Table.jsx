@@ -2,16 +2,16 @@
 import React from 'react'
 import { Container , Button, Checkbox, Icon, Table, Form , Modal} from 'semantic-ui-react'
 
-const Cuentas = ({handleClickView}) => (
+const Cuentas = ({handleClickView, adminLenguageBoolean, onChange, user}) => (
   <Container style={{ marginTop:'5%'}}>
         <Table compact celled definition>
         <Table.Header>
             <Table.Row>
             <Table.HeaderCell />
-            <Table.HeaderCell>Name</Table.HeaderCell>
-            <Table.HeaderCell>Registration Date</Table.HeaderCell>
-            <Table.HeaderCell>E-mail address</Table.HeaderCell>
-            <Table.HeaderCell>Premium Plan</Table.HeaderCell>
+            <Table.HeaderCell>{adminLenguageBoolean ? 'Nombre' : 'Name'}</Table.HeaderCell>
+            <Table.HeaderCell>{adminLenguageBoolean ? 'Fecha De Registro' : 'Registration Date'}</Table.HeaderCell>
+            <Table.HeaderCell>E-mail </Table.HeaderCell>
+            <Table.HeaderCell>{adminLenguageBoolean ? 'Activo' : 'active'}</Table.HeaderCell>
             </Table.Row>
         </Table.Header>
 
@@ -55,30 +55,29 @@ const Cuentas = ({handleClickView}) => (
                 
                 <Modal trigger={
                     <Button floated='right' icon labelPosition='left' primary size='small' onClick={handleClickView}>
-                        <Icon name='user' /> Add User
+                        <Icon name='user' /> {adminLenguageBoolean ? 'Agregar Usuario' : 'Add User'}
                     </Button>}>
-                    <Modal.Header>Select a Photo</Modal.Header>
+                    <Modal.Header>{adminLenguageBoolean ? 'Agregar Usuario' : 'Add User'}</Modal.Header>
                         <Modal.Content>
                             <Form>
                                 <Form.Field>
-                                    <label>First Name</label>
-                                    <input placeholder='First Name' />
+                                    <label>{adminLenguageBoolean ? 'Nombre' : 'Name'}</label>
+                                    <input  onChange={(e)=>onChange(e,'name')} placeholder={adminLenguageBoolean ? 'Nombre' : 'Name'} />
                                 </Form.Field>
                                 <Form.Field>
-                                    <label>Last Name</label>
-                                    <input placeholder='Last Name' />
+                                    <label>Email</label>
+                                    <input onChange={(e)=>onChange(e,'email')} placeholder='Email' />
                                 </Form.Field>
                                 <Form.Field>
-                                    <Checkbox label='I agree to the Terms and Conditions' />
+                                    <Checkbox onChange={()=>onChange('ACTIVE')} label={adminLenguageBoolean ? 'Activo' : 'Active'} />
                                 </Form.Field>
-                                    <Button type='submit'>Submit</Button> 
+                                    <Button type='submit'>{adminLenguageBoolean ? 'Registrar' : 'Submit'}</Button> 
                             </Form>
                         </Modal.Content>
                 </Modal>    
 
 
-                <Button size='small'>Approve</Button>
-                <Button disabled size='small'>Approve All</Button>
+
             </Table.HeaderCell>
             </Table.Row>
         </Table.Footer>
