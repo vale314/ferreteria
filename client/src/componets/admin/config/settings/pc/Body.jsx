@@ -1,13 +1,14 @@
 import React from 'react';
 import {Card, CardActions,CardText} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
 import { Container, Divider, Header ,Button, Icon, Image } from 'semantic-ui-react'
 import * as Semantic from 'semantic-ui-react' 
 import Lenguage from './others/Lenguages.jsx'
 import IconImage from './others/Icon.jsx'
 
+
 const CardExampleExpandable = ({adminLenguage,handleClick,handleClickSaves,adminLenguageBoolean,handleClickRoutes}) => (
   <div>
+  
         <IconImage adminLenguageBoolean={adminLenguageBoolean} handleClickRoutes={handleClickRoutes}/>
         <Lenguage 
         handleClick={handleClick}
@@ -25,7 +26,7 @@ const CardExampleExpandable = ({adminLenguage,handleClick,handleClickSaves,admin
             
           </Card>
         </Container>
-   </div> 
+   </div>
 );
 
 export default CardExampleExpandable;

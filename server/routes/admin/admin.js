@@ -5,6 +5,7 @@ const redis = require('redis');
 const client = redis.createClient();
 const Admin = require('mongoose').model('Admins')
 const email = require('../../functions/admin/settings/email.js')
+const {finds} = require('../../functions/admin/empleados/finds.js')
 
 router.post('/settings/save', (req,res)=>{
   const body = req.body;
@@ -28,5 +29,15 @@ router.post('/settings/email',(req,res)=>{
   res.status(200).end()
 })
 
+router.post('/cuentas', (req,res) => {
+  console.log (req.body)
+  return res.status(200).end()
+})
 
+
+router.get('/cuentas', (req,res)=>{
+  finds((user)=>{
+    return res.json(user).end()
+  })
+})
 module.exports = router;

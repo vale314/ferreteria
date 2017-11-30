@@ -6,7 +6,6 @@ import { Switch, Route, Miss} from 'react-router-dom'
 //material-ui
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
-import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
   //dependencies

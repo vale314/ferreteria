@@ -30,7 +30,7 @@ const Email=({onSubmit,onChange,errors,user,handleClickRoutes,adminLenguageBoole
         </div>
         <div className='Button'>
             <Button id='BACK' onClick={handleClickRoutes} content={adminLenguageBoolean ? 'Volver': 'Back'} />
-            <RaisedButton type='submit' label={adminLenguageBoolean ? 'Cambiar': 'Change'} primary/>
+            <Button type='submit' label={adminLenguageBoolean ? 'Cambiar': 'Change'} primary/>
         </div>    
       </form>  
     </div>  

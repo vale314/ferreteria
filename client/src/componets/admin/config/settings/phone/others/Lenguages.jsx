@@ -1,6 +1,6 @@
 import React from 'react';
 import {Card, CardActions,CardText} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
 import { Container, Divider, Header } from 'semantic-ui-react'
 
 
@@ -11,14 +11,14 @@ const CardExampleExpandable = ({adminLenguage,handleClick,handleClickSaves,admin
               <Header as="h3">
                   {adminLenguageBoolean ? 'Lenguage': 'Language' }
               </Header>
-                      <FlatButton label="ES"
+                      <RaisedButton label="ES"
                       onTouchTap={()=>handleClick('ES')}
                         disabled={adminLenguage =='ES' ? true: false }/>
 
-                      <FlatButton label="EN"
+                      <RaisedButton label="EN"
                       onTouchTap={()=>handleClick('EN')}
                         disabled={adminLenguage =='EN' ? true: false}/>
-                      <FlatButton label="Save"
+                      <Button label="Save"
                       onTouchTap={()=>handleClickSaves()}
                               />
               <Header as="h3">

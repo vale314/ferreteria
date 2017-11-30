@@ -4,7 +4,7 @@ import { Container , Button, Checkbox, Icon, Table, Form, Modal} from 'semantic-
 import Tables from '../common/Table.jsx'
 import styles from './styles.css'
 
-const Cuentas = ({visible, handleClickView, adminLenguageBoolean, onChange, user}) => (
+const Cuentas = ({visible, handleClickView, adminLenguageBoolean, onChange, user, onSubmit, users}) => (
   <div>
     <Container style={{display:'block', marginTop:'5%'}}>
       <Tables   
@@ -12,6 +12,8 @@ const Cuentas = ({visible, handleClickView, adminLenguageBoolean, onChange, user
         onChange={onChange}
         adminLenguageBoolean={adminLenguageBoolean}
         user={user}
+        onSubmit={onSubmit}
+        users={users}
       />
       
     </Container>
